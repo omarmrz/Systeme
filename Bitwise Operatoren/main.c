@@ -97,7 +97,57 @@ int main() {
             } else {
                 printf("B muss zwischen 0 und 15 sein.\n");
             }
+        }else if (wahl == 10) {
+            int n;
+            printf("Bitnummer (0 bis 15): ");
+            scanf("%d", &n);
+
+            if (n >= 0 && n <= 15) {
+                A = A | (1u << n);
+                printf("A Hex: %04X Bits: ", A);
+                bits(A);
+                printf("\n");
+            } else {
+                printf("Ungueltige Bitnummer\n");
+            }
+        }else if (wahl == 11) {
+            int n;
+            printf("Bitnummer (0 bis 15): ");
+            scanf("%d", &n);
+
+            if (n >= 0 && n <= 15) {
+                A = A & ~(1u << n);
+                printf("A Hex: %04X Bits: ", A);
+                bits(A);
+                printf("\n");
+            } else {
+                printf("Ungueltige Bitnummer\n");
+            }
+        }else if (wahl == 12) {
+            int n;
+            printf("Bitnummer (0 bis 15): ");
+            scanf("%d", &n);
+
+            if (n >= 0 && n <= 15) {
+                A = A ^ (1u << n);
+                printf("A Hex: %04X Bits: ", A);
+                bits(A);
+                printf("\n");
+            } else {
+                printf("Ungueltige Bitnummer\n");
+            }
+        }else if (wahl == 13) {
+            int n;
+            printf("Bitnummer (0 bis 15): ");
+            scanf("%d", &n);
+
+            if (n >= 0 && n <= 15) {
+                printf("Bit %d ist %d\n", n, (A >> n) & 1u);
+            } else {
+                printf("Ungueltige Bitnummer\n");
+            }
         }
+
 
 
 
