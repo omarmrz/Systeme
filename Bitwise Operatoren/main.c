@@ -54,37 +54,52 @@ int main() {
         } else if (wahl == 2) {
             printf("B eingeben (Hex): ");
             scanf("%hx", &B);
-        }
-        else if (wahl == 3) {
+        }else if (wahl == 3) {
             A = A + B;
             printf("A Hex: %04X Bits: ", A);
             bits(A);
             printf("\n");
-        }
-        else if (wahl == 4) {
+        }else if (wahl == 4) {
             A = A & B;
             printf("A Hex: %04X Bits: ", A);
             bits(A);
             printf("\n");
-        }
-        else if (wahl == 5) {
+        }else if (wahl == 5) {
             A = A | B;
             printf("A Hex: %04X Bits: ", A);
             bits(A);
             printf("\n");
-        }
-        else if (wahl == 6) {
+        }else if (wahl == 6) {
             A = A ^ B;
             printf("A Hex: %04X Bits: ", A);
             bits(A);
             printf("\n");
-        }
-        else if (wahl == 7) {
+        }else if (wahl == 7) {
             A = ~A;
             printf("A Hex: %04X Bits: ", A);
             bits(A);
             printf("\n");
+        }else if (wahl == 8) {
+            if (B <= 15) {
+                A = A << B;
+                printf("A Hex: %04X Bits: ", A);
+                bits(A);
+                printf("\n");
+            } else {
+                printf("B muss zwischen 0 und 15 sein.\n");
+            }
+        }else if (wahl == 9) {
+            if (B <= 15) {
+                A = A >> B;
+                printf("A Hex: %04X Bits: ", A);
+                bits(A);
+                printf("\n");
+            } else {
+                printf("B muss zwischen 0 und 15 sein.\n");
+            }
         }
+
+
 
 
     } while (wahl != 0);
