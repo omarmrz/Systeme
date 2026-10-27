@@ -12,7 +12,12 @@ int main(void) {
 
     bool heizung = false;
 
-    for (int i = 0; i < 20; i++) {
+    FILE *datei = fopen("simulation.csv", "w");
+
+    fprintf(datei, "Schritt,Temperatur,Solltemperatur,Heizung\n");
+
+
+    for (int i = 0; i < 1000; i++) {
 
         if (temperatur < solltemperatur - hysterese / 2) {
             heizung = true;
@@ -20,6 +25,10 @@ int main(void) {
         else if (temperatur > solltemperatur + hysterese / 2) {
             heizung = false;
         }
+
+        fprintf(datei, "%d,%.2f,%.2f,%s\n",
+               i, temperatur, solltemperatur,
+               heizung ? "EIN" : "AUS");
 
         if (heizung) {
             temperatur += 0.5;
@@ -29,8 +38,10 @@ int main(void) {
         }
 
         printf("Schritt: %d | Temperatur: %.2f °C | Heizung: %s\n",
-               i, temperatur, heizung ? "EIN" : "AUS");
+              i, temperatur, heizung ? "EIN" : "AUS");
     }
+
+    fclose(datei);
 
     return 0;
 
