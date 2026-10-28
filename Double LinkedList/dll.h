@@ -27,6 +27,11 @@ bool DLLInit(DLLList* list);
 bool DLLPushBack(DLLList* list, double value);
 bool DLLPushFront(DLLList* list, double value);
 
+int DLLPopBack(DLLList* list);
+int DLLPopFront(DLLList* list);
+
+
+
 
 
 
