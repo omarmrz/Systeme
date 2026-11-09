@@ -36,4 +36,25 @@ bool DLLPushBack(DLLList* list, double value) {
     } else {
         list->tail->next = node;
     }
+
+    list->tail = node;
+    list->size++;
+    return true;
+}
+
+void DLLClear(DLLList* list) {
+    if (list == NULL) {
+        return;
+    }
+
+    DLLNode* p = list->head;
+    while (p != NULL) {
+        DLLNode* next = p->next;
+        free(p);
+        p = next;
+    }
+
+    list->head = NULL;
+    list->tail = NULL;
+    list->size = 0;
 }
