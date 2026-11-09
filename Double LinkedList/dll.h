@@ -30,6 +30,9 @@ bool DLLPushFront(DLLList* list, double value);
 bool DLLPopBack(DLLList* list, double* value);
 bool DLLPopFront(DLLList* list, double* value);
 
+int64_t DLLSearch(DLLList* list, double value);
+bool DLLRemoveAt(DLLList* list, uint64_t index);
+
 void DLLClear(DLLList* list);
 
 

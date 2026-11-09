@@ -107,6 +107,53 @@ bool DLLPopBack(DLLList* list, double* value) {
     return true;
 }
 
+int64_t DLLSearch(DLLList* list, double value) {
+    if (list == NULL) {
+        return -1;
+    }
+
+    DLLNode* p = list->head;
+    int64_t index = 0;
+
+    while (p != NULL) {
+        if (p->value == value) {
+            return index;
+        }
+
+        p = p->next;
+        index++;
+    }
+
+    return -1;
+}
+
+bool DLLRemoveAt(DLLList* list, uint64_t index) {
+    if (list == NULL || index >= list->size) {
+        return false;
+    }
+
+    DLLNode* node = list->head;
+    for (uint64_t i = 0; i < index; i++) {
+        node = node->next;
+    }
+
+    if (node->prev == NULL) {
+        list->head = node->next;
+    } else {
+        node->prev->next = node->next;
+    }
+
+    if (node->next == NULL) {
+        list->tail = node->prev;
+    } else {
+        node->next->prev = node->prev;
+    }
+
+    free(node);
+    list->size--;
+    return true;
+}
+
 void DLLClear(DLLList* list) {
     if (list == NULL) {
         return;
