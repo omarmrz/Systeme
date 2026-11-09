@@ -42,6 +42,31 @@ bool DLLPushBack(DLLList* list, double value) {
     return true;
 }
 
+bool DLLPushFront(DLLList* list, double value) {
+    if (list == NULL) {
+        return false;
+    }
+
+    DLLNode* node = malloc(sizeof(DLLNode));
+    if (node == NULL) {
+        return false;
+    }
+
+    node->value = value;
+    node->next = list->head;
+    node->prev = NULL;
+
+    if (list->head == NULL) {
+        list->tail = node;
+    } else {
+        list->head->prev = node;
+    }
+
+    list->head = node;
+    list->size++;
+    return true;
+}
+
 void DLLClear(DLLList* list) {
     if (list == NULL) {
         return;

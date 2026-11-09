@@ -17,13 +17,19 @@ int main (void) {
         return 1;
     }
 
-    printf("[ ");
+    printf("Vorwaerts: [ ");
     for (DLLNode* p = list.head; p != NULL; p = p->next) {
-        printf("%.2f", p-> value);
-
+        printf("%.2f ", p->value);
     }
+    printf("]\n");
 
-    printf(" ]\n");
+    printf("Rueckwaerts: [ ");
+    for (DLLNode* p = list.tail; p != NULL; p = p->prev) {
+        printf("%.2f ", p->value);
+    }
+    printf("]\n");
+
+    
 
     DLLClear(&list);
     return 0;
