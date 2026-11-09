@@ -27,8 +27,8 @@ bool DLLInit(DLLList* list);
 bool DLLPushBack(DLLList* list, double value);
 bool DLLPushFront(DLLList* list, double value);
 
-int DLLPopBack(DLLList* list);
-int DLLPopFront(DLLList* list);
+bool DLLPopBack(DLLList* list, double* value);
+bool DLLPopFront(DLLList* list, double* value);
 
 void DLLClear(DLLList* list);
 

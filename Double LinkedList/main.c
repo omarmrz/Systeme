@@ -29,7 +29,23 @@ int main (void) {
     }
     printf("]\n");
 
-    
+    double value;
+
+    if (DLLPopFront(&list, &value)) {
+        printf("Pop Front: %.2f\n", value);
+    }
+
+    if (DLLPopBack(&list, &value)) {
+        printf("Pop Back: %.2f\n", value);
+    }
+
+    if (DLLPopFront(&list, &value)) {
+        printf("Pop Front: %.2f\n", value);
+    }
+
+    if (!DLLPopBack(&list, &value)) {
+        printf("Liste ist leer.\n");
+    }
 
     DLLClear(&list);
     return 0;

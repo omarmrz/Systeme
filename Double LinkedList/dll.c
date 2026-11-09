@@ -67,6 +67,46 @@ bool DLLPushFront(DLLList* list, double value) {
     return true;
 }
 
+bool DLLPopFront(DLLList* list, double* value) {
+    if (list == NULL || value == NULL || list->head == NULL) {
+        return false;
+    }
+
+    DLLNode* node = list->head;
+    *value = node->value;
+    list->head = node->next;
+
+    if (list->head == NULL) {
+        list->tail = NULL;
+    } else {
+        list->head->prev = NULL;
+    }
+
+    free(node);
+    list->size--;
+    return true;
+}
+
+bool DLLPopBack(DLLList* list, double* value) {
+    if (list == NULL || value == NULL || list->tail == NULL) {
+        return false;
+    }
+
+    DLLNode* node = list->tail;
+    *value = node->value;
+    list->tail = node->prev;
+
+    if (list->tail == NULL) {
+        list->head = NULL;
+    } else {
+        list->tail->next = NULL;
+    }
+
+    free(node);
+    list->size--;
+    return true;
+}
+
 void DLLClear(DLLList* list) {
     if (list == NULL) {
         return;
