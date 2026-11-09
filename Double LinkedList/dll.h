@@ -30,6 +30,8 @@ bool DLLPushFront(DLLList* list, double value);
 int DLLPopBack(DLLList* list);
 int DLLPopFront(DLLList* list);
 
+void DLLClear(DLLList* list);
+
 
 
 
